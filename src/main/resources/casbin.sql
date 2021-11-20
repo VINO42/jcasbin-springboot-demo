@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 21/11/2021 00:15:06
+ Date: 21/11/2021 00:34:45
 */
 
 SET NAMES utf8mb4;
@@ -83,7 +83,7 @@ CREATE TABLE `rel_role_resource`  (
 INSERT INTO `rel_role_resource` VALUES (1, 1, 1, '2021-11-20 15:08:31', '2021-11-20 15:08:34');
 INSERT INTO `rel_role_resource` VALUES (2, 2, 2, '2021-11-20 15:08:40', '2021-11-20 15:08:43');
 INSERT INTO `rel_role_resource` VALUES (3, 1, 3, '2021-11-20 20:55:28', '2021-11-20 20:55:30');
-INSERT INTO `rel_role_resource` VALUES (4, 1, 4, NULL, NULL);
+INSERT INTO `rel_role_resource` VALUES (4, 1, 4, '2021-11-21 00:33:43', '2021-11-21 00:33:45');
 INSERT INTO `rel_role_resource` VALUES (5, 3, 6, '2021-11-21 00:13:35', '2021-11-21 00:13:35');
 
 -- ----------------------------
@@ -133,10 +133,10 @@ INSERT INTO `sys_resource` VALUES (1, '提问', '/ask', 0, 1, '2021-11-20 14:09:
 INSERT INTO `sys_resource` VALUES (2, '测试', '/test', 0, 1, '2021-11-20 20:48:31', '2021-11-20 21:15:58', 'POST||GET||PUT');
 INSERT INTO `sys_resource` VALUES (3, '去', '/go', 0, 1, '2021-11-20 20:55:08', '2021-11-20 21:15:53', 'POST||GET||PUT');
 INSERT INTO `sys_resource` VALUES (4, '为用户分配角色', '/user/allocate/role/*', 0, 1, '2021-11-20 22:58:24', '2021-11-20 22:58:35', 'POST||GET||PUT');
-INSERT INTO `sys_resource` VALUES (5, '为角色添加资源权限', '/user/allocate/role/resource', 0, 1, NULL, '2021-11-21 00:07:21', 'POST||GET||PUT');
-INSERT INTO `sys_resource` VALUES (6, '爱', '/love', 0, 1, NULL, '2021-11-21 00:09:21', 'POST||GET||PUT');
-INSERT INTO `sys_resource` VALUES (7, '生活', '/live', 0, 1, NULL, NULL, 'POST||GET||PUT');
-INSERT INTO `sys_resource` VALUES (8, '笑', '/laugh', 0, 1, NULL, NULL, 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (5, '为角色添加资源权限', '/user/allocate/role/resource', 0, 1, '2021-11-21 00:33:59', '2021-11-21 00:34:00', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (6, '爱', '/love', 0, 1, '2021-11-21 00:34:02', '2021-11-21 00:34:03', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (7, '生活', '/live', 0, 1, '2021-11-21 00:34:04', '2021-11-21 00:34:05', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (8, '笑', '/laugh', 0, 1, '2021-11-21 00:34:06', '2021-11-21 00:34:09', 'POST||GET||PUT');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -181,9 +181,9 @@ CREATE TABLE `sys_user`  (
 INSERT INTO `sys_user` VALUES (1, NULL, 'admin', '123456', 'admin', '2021-11-20 14:08:00', '2021-11-20 14:08:02', 1);
 INSERT INTO `sys_user` VALUES (2, NULL, 'alice', '123456', 'admin', '2021-11-20 15:02:27', '2021-11-20 15:02:29', 1);
 INSERT INTO `sys_user` VALUES (3, NULL, 'oldMan', '123456', 'admin', '2021-11-20 22:54:46', '2021-11-20 22:54:49', 1);
-INSERT INTO `sys_user` VALUES (4, NULL, 'vino', '123456', 'vino', NULL, '2021-11-20 23:18:56', 1);
-INSERT INTO `sys_user` VALUES (5, NULL, 'adam', '123456', 'adam', NULL, '2021-11-20 23:18:57', 1);
-INSERT INTO `sys_user` VALUES (6, NULL, 'andrew', '123456', 'andrew', NULL, '2021-11-20 23:19:45', 1);
-INSERT INTO `sys_user` VALUES (7, NULL, 'tony', '123456', 'tony', NULL, '2021-11-21 00:04:19', 1);
+INSERT INTO `sys_user` VALUES (4, NULL, 'vino', '123456', 'vino', '2021-11-21 00:34:28', '2021-11-21 00:34:29', 1);
+INSERT INTO `sys_user` VALUES (5, NULL, 'adam', '123456', 'adam', '2021-11-21 00:34:30', '2021-11-21 00:34:31', 1);
+INSERT INTO `sys_user` VALUES (6, NULL, 'andrew', '123456', 'andrew', '2021-11-21 00:34:32', '2021-11-21 00:34:34', 1);
+INSERT INTO `sys_user` VALUES (7, NULL, 'tony', '123456', 'tony', '2021-11-21 00:34:34', '2021-11-21 00:34:36', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
