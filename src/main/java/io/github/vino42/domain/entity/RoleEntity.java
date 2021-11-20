@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 /**
  * =====================================================================================
  *
- * @Created :   2021/11/20 14:46:27
+ * @Created :   2021/11/20 14:03:29
  * @Compiler :  jdk 11
  * @Author :    VINO
  * @Copyright : VINO
@@ -24,28 +24,25 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_user")
-public class SysUserEntity implements Serializable {
+@TableName("sys_role")
+public class RoleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private Integer tenantId;
+    private String roleName;
 
-    private String loginName;
+    private String describe;
 
-    private String passwd;
+    private String status;
 
-    private String realName;
-
-    private LocalDateTime  createTime;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
-
-    private Boolean status;
 
 
 }

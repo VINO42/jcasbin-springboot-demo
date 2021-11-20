@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.github.vino42.domain.mapper.SysResourceMapper">
+<mapper namespace="io.github.vino42.domain.mapper.ResourceMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="io.github.vino42.domain.entity.SysResourceEntity">
+    <resultMap id="BaseResultMap" type="io.github.vino42.domain.entity.ResourceEntity">
         <id column="id" property="id" />
         <result column="resource_name" property="resourceName" />
         <result column="resource_path" property="resourcePath" />
@@ -11,11 +11,12 @@
         <result column="status" property="status" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
+        <result column="permission" property="permission" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, resource_name, resource_path, parent_id, status, create_time, update_time
+        id, resource_name, resource_path, parent_id, status, create_time, update_time, permission
     </sql>
 
 </mapper>

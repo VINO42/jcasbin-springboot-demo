@@ -24,5 +24,18 @@ Content-Type: application/json
 X-user-id: admin
 
 
+###
+# 为用户分配角色
+POST http://127.0.0.1:8080/user/allocate/role/7?roleId=3
+Content-Type: application/json
+X-user-id: 1
+
+###
+# 为用户分配角色
+POST http://127.0.0.1:8080/user/allocate/role/resource?roleId=3&resourceId=6
+Content-Type: application/json
+X-user-id: 1
+
+
 
 

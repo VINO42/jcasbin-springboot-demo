@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 /**
  * =====================================================================================
  *
- * @Created :   2021/11/20 14:03:29
+ * @Created :   2021/11/20 20:43:07
  * @Compiler :  jdk 11
  * @Author :    VINO
  * @Copyright : VINO
@@ -25,7 +25,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_resource")
-public class SysResourceEntity implements Serializable {
+public class ResourceEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -45,6 +45,8 @@ public class SysResourceEntity implements Serializable {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+
+    private String permission;
 
 
 }

@@ -1,8 +1,11 @@
 package io.github.vino42.web.filter;
 
 import cn.hutool.json.JSONUtil;
+import io.github.vino42.support.Constant;
+import io.github.vino42.support.Result;
 import org.casbin.jcasbin.main.Enforcer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -11,8 +14,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
+
+import static io.github.vino42.support.Constant.CASBIN_USER_PREFIX;
 
 /**
  * =====================================================================================
@@ -32,21 +36,18 @@ public class CustomAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String userId = request.getHeader("X-user-id");
+        String userId = request.getHeader(Constant.CustomRequestHeaders.X_USER_ID);
         String requestURI = request.getRequestURI();
         String method = request.getMethod();
-
-        boolean enforce = enforcer.enforce("user_"+userId, requestURI, method);
+        enforcer.loadPolicy();
+        boolean enforce = enforcer.enforce(CASBIN_USER_PREFIX + userId, requestURI, method);
         if (enforce) {
             filterChain.doFilter(request, response);
         } else {
-            Map<String, Object> result = new HashMap<String, Object>(3);
-            result.put("code", 401);
-            result.put("msg", "用户权限不足");
-            result.put("data", null);
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("application/json");
-            response.getWriter().write(JSONUtil.toJsonStr(result));
+            Result<Object> objectResult = Result.noPermission();
+            response.setCharacterEncoding(StandardCharsets.UTF_8.displayName());
+            response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+            response.getWriter().write(JSONUtil.toJsonStr(objectResult));
         }
 
     }

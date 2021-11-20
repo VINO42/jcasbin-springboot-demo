@@ -1,6 +1,6 @@
 package io.github.vino42.domain.mapper;
 
-import io.github.vino42.domain.entity.SysResourceEntity;
+import io.github.vino42.domain.entity.RoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
  * =====================================================================================
  */
 @Mapper
-public interface SysResourceMapper extends BaseMapper<SysResourceEntity> {
+public interface RoleMapper extends BaseMapper<RoleEntity> {
 
 }

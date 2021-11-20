@@ -26,9 +26,37 @@ public class TestController {
     }
 
     @RequestMapping("/ask")
-    public String Test() {
+    public String ask() {
 
         return "ok";
+
+    }
+
+    @RequestMapping("/go")
+    public String go() {
+
+        return "ok";
+
+    }
+
+    @RequestMapping("/live")
+    public String live() {
+
+        return "live";
+
+    }
+
+    @RequestMapping("/love")
+    public String love() {
+
+        return "love";
+
+    }
+
+    @RequestMapping("/laugh")
+    public String laugh() {
+
+        return "laugh";
 
     }
 }

@@ -1,8 +1,8 @@
 package io.github.vino42.service.impl;
 
-import io.github.vino42.domain.entity.RelUserRoleEntity;
-import io.github.vino42.domain.mapper.RelUserRoleMapper;
-import io.github.vino42.service.IRelUserRoleService;
+import io.github.vino42.domain.entity.RoleEntity;
+import io.github.vino42.domain.mapper.RoleMapper;
+import io.github.vino42.service.IRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,6 @@ import org.springframework.stereotype.Service;
  * =====================================================================================
  */
 @Service
-public class RelUserRoleServiceImpl extends ServiceImpl<RelUserRoleMapper, RelUserRoleEntity> implements IRelUserRoleService {
+public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> implements IRoleService {
 
 }

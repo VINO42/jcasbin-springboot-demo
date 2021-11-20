@@ -1,6 +1,6 @@
 package io.github.vino42.domain.mapper;
 
-import io.github.vino42.domain.entity.RelUserRoleEntity;
+import io.github.vino42.domain.entity.UserRoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
  * =====================================================================================
  */
 @Mapper
-public interface RelUserRoleMapper extends BaseMapper<RelUserRoleEntity> {
+public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
 
 }

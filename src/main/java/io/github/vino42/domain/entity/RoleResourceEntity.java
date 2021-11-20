@@ -2,8 +2,8 @@ package io.github.vino42.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 /**
  * =====================================================================================
  *
- * @Created :   2021/11/20 14:03:29
+ * @Created :   2021/11/20 15:04:28
  * @Compiler :  jdk 11
  * @Author :    VINO
  * @Copyright : VINO
@@ -24,19 +24,17 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_role")
-public class SysRoleEntity implements Serializable {
+@TableName("rel_role_resource")
+public class RoleResourceEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String roleName;
+    private Integer roleId;
 
-    private String describe;
-
-    private String status;
+    private Integer resourceId;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

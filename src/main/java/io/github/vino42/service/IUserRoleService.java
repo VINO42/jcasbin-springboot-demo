@@ -1,6 +1,6 @@
 package io.github.vino42.service;
 
-import io.github.vino42.domain.entity.SysRoleEntity;
+import io.github.vino42.domain.entity.UserRoleEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,6 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Decription :  服务类
  * =====================================================================================
  */
-public interface ISysRoleService extends IService<SysRoleEntity> {
+public interface IUserRoleService extends IService<UserRoleEntity> {
 
 }

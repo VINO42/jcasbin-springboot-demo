@@ -11,37 +11,11 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 20/11/2021 16:30:19
+ Date: 21/11/2021 00:15:06
 */
-create database casbin;
-
-use casbin;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for casbin_model
--- ----------------------------
-DROP TABLE IF EXISTS `casbin_model`;
-CREATE TABLE `casbin_model`  (
-  `pid` bigint(0) NOT NULL AUTO_INCREMENT,
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `model_status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'INFORCE',
-  `create_time` datetime(0) NULL DEFAULT NULL,
-  `modify_time` datetime(0) NULL DEFAULT NULL,
-  `model_def` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  PRIMARY KEY (`pid`) USING BTREE,
-  INDEX `casbin_model_id_index`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of casbin_model
--- ----------------------------
-INSERT INTO `casbin_model` VALUES (1, 'dcd50717e35a46248274102a37a08b8c', 'INFORCE', '2021-11-19 23:53:05', '2021-11-19 23:53:05', '[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)');
-INSERT INTO `casbin_model` VALUES (2, '9e0938ebed464f99810c8f15b2ea99f2', 'INFORCE', '2021-11-19 23:54:10', '2021-11-19 23:54:10', '[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)');
-INSERT INTO `casbin_model` VALUES (3, '07fb7819d171422d88b1f5c3feaf4044', 'INFORCE', '2021-11-19 23:56:54', '2021-11-19 23:56:54', '[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)');
-INSERT INTO `casbin_model` VALUES (4, '7676e669e3ae4f619431c6e2173e34f8', 'INFORCE', '2021-11-19 23:58:12', '2021-11-19 23:58:12', '[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)');
 
 -- ----------------------------
 -- Table structure for casbin_rule
@@ -57,18 +31,45 @@ CREATE TABLE `casbin_rule`  (
   `v4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `v5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of casbin_rule
 -- ----------------------------
+INSERT INTO `casbin_rule` VALUES (234, 'p', 'user_3', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (235, 'g', 'user_3', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (236, 'g', 'user_6', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (237, 'p', 'user_7', '/love', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (238, 'g', 'user_1', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (239, 'p', 'user_2', '/test', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (240, 'g2', '/user/allocate/role/*', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (241, 'p', 'user_1', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (242, 'p', 'user_4', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (243, 'g', 'user_2', 'role_2', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (244, 'g2', '/ask', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (245, 'p', 'user_6', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (246, 'g', 'user_4', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (247, 'p', 'user_1', '/ask', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (248, 'g2', '/go', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (249, 'g', 'user_7', 'role_2', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (250, 'g2', '/test', 'role_2', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (251, 'p', 'user_1', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (252, 'p', 'user_4', '/ask', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (253, 'p', 'user_7', '/test', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (254, 'p', 'user_3', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (255, 'p', 'user_3', '/ask', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (256, 'g2', '/love', 'role_3', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (257, 'p', 'user_4', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (258, 'g', 'user_7', 'role_3', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (259, 'p', 'user_6', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (260, 'p', 'user_6', '/ask', 'POST', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for rel_role_resource
 -- ----------------------------
 DROP TABLE IF EXISTS `rel_role_resource`;
 CREATE TABLE `rel_role_resource`  (
-  `id` int(0) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
   `role_id` int(0) NULL DEFAULT NULL,
   `resource_id` int(0) NULL DEFAULT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
@@ -81,6 +82,9 @@ CREATE TABLE `rel_role_resource`  (
 -- ----------------------------
 INSERT INTO `rel_role_resource` VALUES (1, 1, 1, '2021-11-20 15:08:31', '2021-11-20 15:08:34');
 INSERT INTO `rel_role_resource` VALUES (2, 2, 2, '2021-11-20 15:08:40', '2021-11-20 15:08:43');
+INSERT INTO `rel_role_resource` VALUES (3, 1, 3, '2021-11-20 20:55:28', '2021-11-20 20:55:30');
+INSERT INTO `rel_role_resource` VALUES (4, 1, 4, NULL, NULL);
+INSERT INTO `rel_role_resource` VALUES (5, 3, 6, '2021-11-21 00:13:35', '2021-11-21 00:13:35');
 
 -- ----------------------------
 -- Table structure for rel_user_role
@@ -100,6 +104,11 @@ CREATE TABLE `rel_user_role`  (
 -- ----------------------------
 INSERT INTO `rel_user_role` VALUES (1, 1, 1, '2021-11-20 14:09:16', '2021-11-20 14:09:18');
 INSERT INTO `rel_user_role` VALUES (2, 2, 2, '2021-11-20 15:03:00', '2021-11-20 15:03:04');
+INSERT INTO `rel_user_role` VALUES (3, 4, 1, '2021-11-20 23:00:04', '2021-11-20 23:00:04');
+INSERT INTO `rel_user_role` VALUES (6, 3, 1, '2021-11-20 23:07:55', '2021-11-20 23:07:55');
+INSERT INTO `rel_user_role` VALUES (8, 6, 1, '2021-11-20 23:55:59', '2021-11-20 23:55:59');
+INSERT INTO `rel_user_role` VALUES (9, 7, 2, '2021-11-21 00:02:51', '2021-11-21 00:02:51');
+INSERT INTO `rel_user_role` VALUES (10, 7, 3, '2021-11-21 00:14:20', '2021-11-21 00:14:20');
 
 -- ----------------------------
 -- Table structure for sys_resource
@@ -113,13 +122,21 @@ CREATE TABLE `sys_resource`  (
   `status` tinyint(0) NULL DEFAULT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `permission` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_resource
 -- ----------------------------
-INSERT INTO `sys_resource` VALUES (1, '提问', '/ask', 0, 1, '2021-11-20 14:09:04', '2021-11-20 14:09:06');
+INSERT INTO `sys_resource` VALUES (1, '提问', '/ask', 0, 1, '2021-11-20 14:09:04', '2021-11-20 21:22:33', 'POST');
+INSERT INTO `sys_resource` VALUES (2, '测试', '/test', 0, 1, '2021-11-20 20:48:31', '2021-11-20 21:15:58', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (3, '去', '/go', 0, 1, '2021-11-20 20:55:08', '2021-11-20 21:15:53', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (4, '为用户分配角色', '/user/allocate/role/*', 0, 1, '2021-11-20 22:58:24', '2021-11-20 22:58:35', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (5, '为角色添加资源权限', '/user/allocate/role/resource', 0, 1, NULL, '2021-11-21 00:07:21', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (6, '爱', '/love', 0, 1, NULL, '2021-11-21 00:09:21', 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (7, '生活', '/live', 0, 1, NULL, NULL, 'POST||GET||PUT');
+INSERT INTO `sys_resource` VALUES (8, '笑', '/laugh', 0, 1, NULL, NULL, 'POST||GET||PUT');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -140,6 +157,7 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 INSERT INTO `sys_role` VALUES (1, 'admin', '管理员', '1', '2021-11-20 14:08:35', '2021-11-20 14:08:37');
 INSERT INTO `sys_role` VALUES (2, 'test', '测试用户', '1', '2021-11-20 15:02:10', '2021-11-20 15:02:12');
+INSERT INTO `sys_role` VALUES (3, 'opt', '运营', '1', '2021-11-21 00:08:16', '2021-11-21 00:08:18');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -162,5 +180,10 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 INSERT INTO `sys_user` VALUES (1, NULL, 'admin', '123456', 'admin', '2021-11-20 14:08:00', '2021-11-20 14:08:02', 1);
 INSERT INTO `sys_user` VALUES (2, NULL, 'alice', '123456', 'admin', '2021-11-20 15:02:27', '2021-11-20 15:02:29', 1);
+INSERT INTO `sys_user` VALUES (3, NULL, 'oldMan', '123456', 'admin', '2021-11-20 22:54:46', '2021-11-20 22:54:49', 1);
+INSERT INTO `sys_user` VALUES (4, NULL, 'vino', '123456', 'vino', NULL, '2021-11-20 23:18:56', 1);
+INSERT INTO `sys_user` VALUES (5, NULL, 'adam', '123456', 'adam', NULL, '2021-11-20 23:18:57', 1);
+INSERT INTO `sys_user` VALUES (6, NULL, 'andrew', '123456', 'andrew', NULL, '2021-11-20 23:19:45', 1);
+INSERT INTO `sys_user` VALUES (7, NULL, 'tony', '123456', 'tony', NULL, '2021-11-21 00:04:19', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
