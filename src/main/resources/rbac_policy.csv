@@ -1,0 +1,13 @@
+#单独的用户访问控制策略
+p, user_1, /ask, POST
+p, user_2, /test, POST
+p, user_admin, /*, POST
+
+#基于用户角色的访问控制策略
+g, user_1, role_admin
+g, user_1, role_admin
+
+#基于用户角色权限的访问控制策略
+g2, /ask, role_1
+g2, /test, role_2
+g2, /*, role_admin

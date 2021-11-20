@@ -1,0 +1,28 @@
+# 用户1在策略中没有test权限
+POST http://127.0.0.1:8080/test
+Content-Type: application/json
+X-user-id: 1
+
+
+###
+# 用户2在策略中没有ask权限
+POST http://127.0.0.1:8080/ask
+Content-Type: application/json
+X-user-id: 2
+
+
+###
+# 用户admin在策略中有/*的权限
+POST http://127.0.0.1:8080/ask
+Content-Type: application/json
+X-user-id: admin
+
+###
+# 用户admin在策略中有/*的权限
+POST http://127.0.0.1:8080/test
+Content-Type: application/json
+X-user-id: admin
+
+
+
+
