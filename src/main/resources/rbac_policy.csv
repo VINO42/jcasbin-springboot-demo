@@ -5,7 +5,6 @@ p, user_admin, /*, POST
 
 #基于用户角色的访问控制策略
 g, user_1, role_admin
-g, user_1, role_admin
 
 #基于用户角色权限的访问控制策略
 g2, /ask, role_1
