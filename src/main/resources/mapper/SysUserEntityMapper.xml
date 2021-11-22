@@ -5,7 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="io.github.vino42.domain.entity.UserEntity">
         <id column="id" property="id"/>
-        <result column="tenant_id" property="tenantId"/>
+        <result column="domain_id" property="domainId"/>
         <result column="login_name" property="loginName"/>
         <result column="passwd" property="passwd"/>
         <result column="real_name" property="realName"/>
@@ -16,11 +16,11 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, tenant_id, login_name, passwd, real_name,  create_time, update_time, status
+        id, domain_id, login_name, passwd, real_name,  create_time, update_time, status
     </sql>
     <select id="getCasbinUserResourcePermissionModel"
             resultType="io.github.vino42.domain.model.CasbinUserResourcePermissionModel">
-        select u.id AS user_id,sr.resource_path,sr.permission from sys_user u  LEFT JOIN rel_user_role rur ON u.id=rur.user_id
+        select u.id AS user_id,u.domain_id AS domainId,sr.resource_path,sr.permission from sys_user u  LEFT JOIN rel_user_role rur ON u.id=rur.user_id
                                   LEFT JOIN rel_role_resource rrr ON rur.role_id=rrr.role_id
                                   LEFT JOIN sys_resource sr ON sr.id=rrr.resource_id
                                   WHERE 1=1
@@ -29,7 +29,7 @@
 
     </select>
     <select id="getCasbinUserRoleModel" resultType="io.github.vino42.domain.model.CasbinUserRoleModel">
-          select su.id AS user_id,sr.id AS role_id from sys_role sr  LEFT JOIN rel_user_role rur ON sr.id=rur.role_id
+          select su.id AS user_id, su.domain_id AS domainId ,sr.id AS role_id from sys_role sr  LEFT JOIN rel_user_role rur ON sr.id=rur.role_id
                                                           LEFT JOIN sys_user su ON su.id=rur.user_id
                                   WHERE 1=1
                                   AND su.status=1

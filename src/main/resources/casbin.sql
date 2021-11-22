@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 21/11/2021 00:34:45
+ Date: 22/11/2021 23:13:54
 */
 
 SET NAMES utf8mb4;
@@ -31,38 +31,38 @@ CREATE TABLE `casbin_rule`  (
   `v4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `v5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 261 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of casbin_rule
 -- ----------------------------
-INSERT INTO `casbin_rule` VALUES (234, 'p', 'user_3', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (235, 'g', 'user_3', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (236, 'g', 'user_6', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (237, 'p', 'user_7', '/love', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (238, 'g', 'user_1', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (239, 'p', 'user_2', '/test', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (240, 'g2', '/user/allocate/role/*', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (241, 'p', 'user_1', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (242, 'p', 'user_4', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (243, 'g', 'user_2', 'role_2', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (244, 'g2', '/ask', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (245, 'p', 'user_6', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (246, 'g', 'user_4', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (247, 'p', 'user_1', '/ask', 'POST', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (248, 'g2', '/go', 'role_1', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (249, 'g', 'user_7', 'role_2', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (250, 'g2', '/test', 'role_2', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (251, 'p', 'user_1', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (252, 'p', 'user_4', '/ask', 'POST', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (253, 'p', 'user_7', '/test', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (254, 'p', 'user_3', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (255, 'p', 'user_3', '/ask', 'POST', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (256, 'g2', '/love', 'role_3', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (257, 'p', 'user_4', '/go', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (258, 'g', 'user_7', 'role_3', NULL, NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (259, 'p', 'user_6', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES (260, 'p', 'user_6', '/ask', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (55, 'p', 'user_1', 'domain_1', '/ask', 'POST', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (56, 'p', 'user_4', 'domain_1', '/ask', 'POST', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (57, 'p', 'user_7', 'domain_3', '/test', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (58, 'p', 'user_1', 'domain_1', '/go', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (59, 'p', 'user_3', 'domain_2', '/ask', 'POST', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (60, 'p', 'user_6', 'domain_2', '/ask', 'POST', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (61, 'g2', '/user/allocate/role/*', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (62, 'p', 'user_4', 'domain_1', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (63, 'g2', '/ask', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (64, 'g', 'user_7', 'role_2', 'domain_3', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (65, 'p', 'user_1', 'domain_1', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (66, 'g', 'user_7', 'role_3', 'domain_3', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (67, 'g', 'user_2', 'role_2', 'domain_2', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (68, 'g2', '/go', 'role_1', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (69, 'g2', '/test', 'role_2', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (70, 'g', 'user_3', 'role_1', 'domain_2', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (71, 'g', 'user_6', 'role_1', 'domain_2', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (72, 'p', 'user_7', 'domain_3', '/love', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (73, 'g', 'user_4', 'role_1', 'domain_1', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (74, 'p', 'user_3', 'domain_2', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (75, 'g', 'user_1', 'role_1', 'domain_1', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (76, 'p', 'user_3', 'domain_2', '/go', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (77, 'p', 'user_6', 'domain_2', '/go', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (78, 'p', 'user_6', 'domain_2', '/user/allocate/role/*', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (79, 'g2', '/love', 'role_3', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (80, 'p', 'user_4', 'domain_1', '/go', 'POST||GET||PUT', NULL, NULL);
+INSERT INTO `casbin_rule` VALUES (81, 'p', 'user_2', 'domain_2', '/test', 'POST||GET||PUT', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for rel_role_resource
@@ -75,7 +75,7 @@ CREATE TABLE `rel_role_resource`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rel_role_resource
@@ -97,7 +97,7 @@ CREATE TABLE `rel_user_role`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rel_user_role
@@ -124,7 +124,7 @@ CREATE TABLE `sys_resource`  (
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `permission` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_resource
@@ -150,7 +150,7 @@ CREATE TABLE `sys_role`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
@@ -165,7 +165,7 @@ INSERT INTO `sys_role` VALUES (3, 'opt', '运营', '1', '2021-11-21 00:08:16', '
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
-  `tenant_id` int(0) NULL DEFAULT NULL,
+  `domain_id` int(0) NULL DEFAULT NULL,
   `login_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `passwd` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `real_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -173,17 +173,17 @@ CREATE TABLE `sys_user`  (
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `status` tinyint(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, NULL, 'admin', '123456', 'admin', '2021-11-20 14:08:00', '2021-11-20 14:08:02', 1);
-INSERT INTO `sys_user` VALUES (2, NULL, 'alice', '123456', 'admin', '2021-11-20 15:02:27', '2021-11-20 15:02:29', 1);
-INSERT INTO `sys_user` VALUES (3, NULL, 'oldMan', '123456', 'admin', '2021-11-20 22:54:46', '2021-11-20 22:54:49', 1);
-INSERT INTO `sys_user` VALUES (4, NULL, 'vino', '123456', 'vino', '2021-11-21 00:34:28', '2021-11-21 00:34:29', 1);
-INSERT INTO `sys_user` VALUES (5, NULL, 'adam', '123456', 'adam', '2021-11-21 00:34:30', '2021-11-21 00:34:31', 1);
-INSERT INTO `sys_user` VALUES (6, NULL, 'andrew', '123456', 'andrew', '2021-11-21 00:34:32', '2021-11-21 00:34:34', 1);
-INSERT INTO `sys_user` VALUES (7, NULL, 'tony', '123456', 'tony', '2021-11-21 00:34:34', '2021-11-21 00:34:36', 1);
+INSERT INTO `sys_user` VALUES (1, 1, 'admin', '123456', 'admin', '2021-11-20 14:08:00', '2021-11-22 22:41:16', 1);
+INSERT INTO `sys_user` VALUES (2, 2, 'alice', '123456', 'admin', '2021-11-20 15:02:27', '2021-11-22 22:41:17', 1);
+INSERT INTO `sys_user` VALUES (3, 2, 'oldMan', '123456', 'admin', '2021-11-20 22:54:46', '2021-11-22 22:41:20', 1);
+INSERT INTO `sys_user` VALUES (4, 1, 'vino', '123456', 'vino', '2021-11-21 00:34:28', '2021-11-22 22:41:21', 1);
+INSERT INTO `sys_user` VALUES (5, 1, 'adam', '123456', 'adam', '2021-11-21 00:34:30', '2021-11-22 22:41:22', 1);
+INSERT INTO `sys_user` VALUES (6, 2, 'andrew', '123456', 'andrew', '2021-11-21 00:34:32', '2021-11-22 22:41:22', 1);
+INSERT INTO `sys_user` VALUES (7, 3, 'tony', '123456', 'tony', '2021-11-21 00:34:34', '2021-11-22 22:41:24', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

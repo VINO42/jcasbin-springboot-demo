@@ -22,9 +22,9 @@ public class AuthService {
     @Autowired
     private Enforcer enforcer;
 
-    @Cacheable(key = "#sub+'_'+#resource+'_'+#permission")
-    public boolean auth(String sub, String resource, String permission) {
-        return enforcer.enforce(sub, resource, permission);
+//    @Cacheable(key = "#sub+'_'+#dom+'_'+#resource+'_'+#permission")
+    public boolean auth(String sub, String dom, String resource, String permission) {
+        return enforcer.enforce(sub, dom, resource, permission);
     }
 
 

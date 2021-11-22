@@ -32,7 +32,7 @@ public class UserEntity implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private Integer tenantId;
+    private Integer domainId;
 
     private String loginName;
 
@@ -46,6 +46,6 @@ public class UserEntity implements Serializable {
     private LocalDateTime updateTime;
 
     private Boolean status;
-
+    
 
 }

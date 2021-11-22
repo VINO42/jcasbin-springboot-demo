@@ -2,8 +2,7 @@ package io.github.vino42.domain.model;
 
 import java.io.Serializable;
 
-import static io.github.vino42.support.Constant.CASBIN_ROLE_PREFIX;
-import static io.github.vino42.support.Constant.CASBIN_USER_PREFIX;
+import static io.github.vino42.support.Constant.*;
 
 /**
  * =====================================================================================
@@ -22,6 +21,8 @@ public class CasbinUserRoleModel implements Serializable {
     private String g = "g";
 
     private String userId;
+
+    private String domainId;
 
     private String roleId;
 
@@ -47,5 +48,13 @@ public class CasbinUserRoleModel implements Serializable {
 
     public String getRoleId() {
         return roleId;
+    }
+
+    public String getDomainId() {
+        return domainId;
+    }
+
+    public void setDomainId(String domainId) {
+        this.domainId = CASBIN_DOMAIN_PREFIX + domainId;
     }
 }

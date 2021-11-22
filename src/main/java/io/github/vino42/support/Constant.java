@@ -17,6 +17,8 @@ public interface Constant {
 
     String CASBIN_ROLE_PREFIX = "role_";
 
+    String CASBIN_DOMAIN_PREFIX = "domain_";
+
     String CASBIN_POLICY_G = "g";
 
     String CASBIN_POLICY_G2 = "g2";
@@ -38,6 +40,7 @@ public interface Constant {
     interface CustomRequestHeaders {
 
         String X_USER_ID = "X-user-id";
+        String X_DOMAIN_ID = "X-domain-id";
     }
 
 }

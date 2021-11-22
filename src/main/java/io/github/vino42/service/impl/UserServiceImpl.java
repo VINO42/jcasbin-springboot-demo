@@ -66,6 +66,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     @Override
     @Transactional
     public Boolean allocateRole(Integer userId, Integer roleId) {
+
         UserRoleEntity one = userRoleService.getOne(Wrappers.<UserRoleEntity>lambdaQuery().eq(UserRoleEntity::getUserId, userId).eq(UserRoleEntity::getRoleId, roleId));
         if (one == null) {
             UserRoleEntity userRoleEntity = new UserRoleEntity();
@@ -75,11 +76,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
             userRoleEntity.setUpdateTime(LocalDateTime.now());
             userRoleService.save(userRoleEntity);
         }
+        UserEntity userEntity = this.getBaseMapper().selectById(userId);
         try {
-            enforcer.addRoleForUser(CASBIN_USER_PREFIX + userId, CASBIN_ROLE_PREFIX + roleId);
+            enforcer.addRoleForUserInDomain(CASBIN_USER_PREFIX + userId, CASBIN_ROLE_PREFIX + roleId, CASBIN_DOMAIN_PREFIX + userEntity.getDomainId());
             List<CasbinUserResourcePermissionModel> casbinUserResourcePermissionModels = userMapper.getCasbinUserResourcePermissionModelByUserIdAndRoleId(userId, roleId);
             casbinUserResourcePermissionModels.forEach(casbinUserResourcePermissionModel -> {
                 enforcer.addPermissionForUser(casbinUserResourcePermissionModel.getUserId(),
+                        CASBIN_DOMAIN_PREFIX + userEntity.getDomainId(),
                         casbinUserResourcePermissionModel.getResourcePath(),
                         casbinUserResourcePermissionModel.getPermission());
             });

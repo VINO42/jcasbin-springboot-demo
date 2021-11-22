@@ -1,9 +1,8 @@
 package io.github.vino42.domain.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
+import static io.github.vino42.support.Constant.CASBIN_DOMAIN_PREFIX;
 import static io.github.vino42.support.Constant.CASBIN_USER_PREFIX;
 
 /**
@@ -19,9 +18,11 @@ import static io.github.vino42.support.Constant.CASBIN_USER_PREFIX;
  */
 
 public class CasbinUserResourcePermissionModel implements Serializable {
-    private String p="p";
+    private String p = "p";
 
     private String userId;
+
+    private String domainId;
 
     private String resourcePath;
 
@@ -40,7 +41,7 @@ public class CasbinUserResourcePermissionModel implements Serializable {
     }
 
     public void setUserId(String userId) {
-        this.userId = CASBIN_USER_PREFIX+userId;
+        this.userId = CASBIN_USER_PREFIX + userId;
     }
 
     public String getResourcePath() {
@@ -57,5 +58,13 @@ public class CasbinUserResourcePermissionModel implements Serializable {
 
     public void setPermission(String permission) {
         this.permission = permission;
+    }
+
+    public String getdomainId() {
+        return domainId;
+    }
+
+    public void setdomainId(String domainId) {
+        this.domainId = CASBIN_DOMAIN_PREFIX + domainId;
     }
 }

@@ -35,21 +35,22 @@ public class InitAction {
 
     @PostConstruct
     public void init() {
-        //p, user_1, /ask, POST
+        //p, user_1,domain_1, /ask, POST
         List<CasbinUserResourcePermissionModel> casbinUserResourcePermissionModels = sysUserService.getCasbinUserResourcePermissionModel();
-        //g, user_1, role_admin
+        //g, user_1, domain_1 role_admin
         List<CasbinUserRoleModel> casbinUserRoleModels = sysUserService.getCasbinUserRoleModel();
-        //p, user_1, /ask, POST
+        //g2, /ask2, role_11
         List<CasbinRoleResourceModel> casbinRoleResourceModels = sysUserService.getCasbinRoleResourceModel();
-
+        //p, user_1,domain_1, /ask, POST
         casbinUserResourcePermissionModels.forEach(casbinUserResourcePermissionModel -> {
             enforcer.addPermissionForUser(casbinUserResourcePermissionModel.getUserId(),
+                    casbinUserResourcePermissionModel.getdomainId(),
                     casbinUserResourcePermissionModel.getResourcePath(),
                     casbinUserResourcePermissionModel.getPermission());
         });
         //g, user_12, role_admin
         casbinUserRoleModels.forEach(casbinUserRoleModel -> {
-            enforcer.addRoleForUser(casbinUserRoleModel.getUserId(), casbinUserRoleModel.getRoleId());
+            enforcer.addRoleForUserInDomain(casbinUserRoleModel.getUserId(), casbinUserRoleModel.getRoleId(), casbinUserRoleModel.getDomainId());
         });
         //g2, /ask2, role_11
         casbinRoleResourceModels.forEach(casbinRoleResourceModel -> {
